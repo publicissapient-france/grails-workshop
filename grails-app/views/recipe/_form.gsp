@@ -50,8 +50,26 @@
 
 <div class="fieldcontain ${hasErrors(bean: recipeInstance, field: 'ingredients', 'error')} ">
 	<label for="ingredients2">&nbsp;</label>
-	<div id="selectedIngredients" style="display: inline; padding-left: 10px;"></div>
+	<div id="selectedIngredients" style="display: inline;">
+	
+      <g:each var="ing" in="${recipeInstance?.ingredients}">
+          <input type="button" class= "ing ing-button" id="ing-${ing.id}" value="-"/>
+          <input type="hidden" class="ing-${ing.id}" name="ingredients" value="${ing.id}"/>
+          <span class="ing ing-${ing.id}">${ing.name}</span>
+
+          <r:script>
+            $(document).ready(function() {
+                $('#ing-${ing.id}').click(function() {
+                $('.'+this.id).remove();
+                $('#'+this.id).remove();
+              }); 
+            }); 
+          </r:script>
+      </g:each>
+
+	</div>
 </div>
+
 
 <r:script>
 	$(document).ready(function() {
