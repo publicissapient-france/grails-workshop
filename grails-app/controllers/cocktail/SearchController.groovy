@@ -2,30 +2,47 @@ package cocktail
 
 class SearchController {
 
-    def index() { }
-
 	def searchableService // injection auto
+	
+	def index() {
+		render(view:'list')
+	}
+
+	def list() { 
+		render(view:'list')
+	}
 
 	def go() {
-      def searchResult = searchableService.search(params.query as String)
-
-      def resList = [] as Set
-      searchResult.results.each { res ->
-        switch (res) {
-          case Ingredient :
-            resList << Recipe.withCriteria {
-              ingredients {
-                eq 'id', res.id
-              }
-            }
-            break
-
-          case Recipe :
-            resList << res
-            break
-        }
-      }
-
-      render (view:'list', model: [query: params.query, results: resList.flatten()])
+		
+	  String searchQuery = params.query
+	  
+	  if (!searchQuery) {
+		  flash.message = '"query" param cannot be empty'
+	      redirect (action: 'list')
+	  }
+	  else {
+	      def searchResult = searchableService.search(searchQuery)
+	
+	      def resList = [] as Set
+	      searchResult.results.each { res ->
+	        switch (res) {
+	          case Ingredient :
+	            resList << Recipe.withCriteria {
+	              ingredients {
+	                eq 'id', res.id
+	              }
+	            }
+	            break
+	
+	          case Recipe :
+	            resList << res
+	            break
+	        }
+	      }
+	
+	      render (view:'list', model: [query: searchQuery, results: resList.flatten()])
+	  }
+	  
     }
+
 }
