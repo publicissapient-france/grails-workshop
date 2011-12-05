@@ -1,6 +1,8 @@
 <%@ page import="cocktail.Ingredient" %>
 
-
+<head>
+	<ckeditor:resources />
+</head>
 
 <div class="fieldcontain ${hasErrors(bean: ingredientInstance, field: 'name', 'error')} required">
 	<label for="name">
@@ -15,6 +17,9 @@
 		<g:message code="ingredient.description.label" default="Description" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textArea name="description" cols="40" rows="5" maxlength="255" required="" value="${ingredientInstance?.description}"/>
+	<ckeditor:editor name="description" height="200px" width="80%" toolbar="Basic">
+  		${ingredientInstance?.description}
+	</ckeditor:editor>
+
 </div>
 

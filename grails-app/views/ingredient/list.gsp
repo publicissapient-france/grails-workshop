@@ -36,7 +36,7 @@
 					
 						<td><g:link action="show" id="${ingredientInstance.id}">${fieldValue(bean: ingredientInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: ingredientInstance, field: "description")}</td>
+						<td>${ingredientInstance?.description}</td>
 					
 					</tr>
 				</g:each>
