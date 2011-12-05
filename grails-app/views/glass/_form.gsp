@@ -1,5 +1,8 @@
 <%@ page import="cocktail.Glass" %>
 
+<head>
+	<ckeditor:resources />
+</head>
 
 
 <div class="fieldcontain ${hasErrors(bean: glassInstance, field: 'name', 'error')} required">
@@ -15,6 +18,8 @@
 		<g:message code="glass.description.label" default="Description" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textArea name="description" cols="40" rows="5" maxlength="255" required="" value="${glassInstance?.description}"/>
+	<ckeditor:editor name="description" height="200px" width="80%" toolbar="Basic">
+  		${glassInstance?.description}
+	</ckeditor:editor>
 </div>
 

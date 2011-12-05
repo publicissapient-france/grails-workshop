@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="description-label" class="property-label"><g:message code="glass.description.label" default="Description" /></span>
 					
-						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${glassInstance}" field="description"/></span>
+						<span class="property-value" aria-labelledby="description-label">${glassInstance?.description}</span>
 					
 				</li>
 				</g:if>

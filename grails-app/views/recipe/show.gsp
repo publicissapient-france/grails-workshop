@@ -36,7 +36,7 @@
 				<li class="fieldcontain">
 					<span id="description-label" class="property-label"><g:message code="recipe.description.label" default="Description" /></span>
 					
-						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${recipeInstance}" field="description"/></span>
+						<span class="property-value" aria-labelledby="description-label">${recipeInstance?.description}</span>
 					
 				</li>
 				</g:if>
