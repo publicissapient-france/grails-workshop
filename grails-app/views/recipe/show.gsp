@@ -45,7 +45,7 @@
 				<li class="fieldcontain">
 					<span id="glass-label" class="property-label"><g:message code="recipe.glass.label" default="Glass" /></span>
 					
-						<span class="property-value" aria-labelledby="glass-label"><g:link controller="glass" action="show" id="${recipeInstance?.glass?.id}">${recipeInstance?.glass?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="glass-label"><g:link controller="glass" action="show" id="${recipeInstance?.glass?.id}">${recipeInstance?.glass?.name.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -55,7 +55,7 @@
 					<span id="ingredients-label" class="property-label"><g:message code="recipe.ingredients.label" default="Ingredients" /></span>
 					
 						<g:each in="${recipeInstance.ingredients}" var="i">
-						<span class="property-value" aria-labelledby="ingredients-label"><g:link controller="ingredient" action="show" id="${i.id}">${i?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="ingredients-label"><g:link controller="ingredient" action="show" id="${i.id}">${i?.name.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>
