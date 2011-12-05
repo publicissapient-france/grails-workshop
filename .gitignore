@@ -14,6 +14,10 @@
 /*.launch
 /*.tmproj
 
+# target
+target
+target-eclipse
+
 # logs
 stacktrace.log
 /test/reports
