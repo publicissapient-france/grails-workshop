@@ -12,7 +12,10 @@ class IngredientController {
 
 	def beginsWith() {
     	def allMatching = Ingredient.findByNameIlike("${params.term}%")
-    	render allMatching as JSON
+	
+   		render(contentType:"text/json") {
+    	    allMatching.collect { [label: it.name, value: it.id] }
+	    }
 	}
 
 }
