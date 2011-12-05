@@ -31,6 +31,6 @@
 		<g:message code="recipe.ingredients.label" default="Ingredients" />
 		
 	</label>
-	<g:select name="ingredients" from="${cocktail.Ingredient.list()}" multiple="multiple" optionKey="id" size="5" value="${recipeInstance?.ingredients*.id}" class="many-to-many"/>
+	<g:select name="ingredients" from="${cocktail.Ingredient.list()}" multiple="multiple" optionKey="id" optionValue="name" size="5" value="${recipeInstance?.ingredients*.id}" class="many-to-many"/>
 </div>
 
