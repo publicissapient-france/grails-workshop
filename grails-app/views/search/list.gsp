@@ -16,7 +16,12 @@
 
 <body>
 
+	<g:if test="${flash.message}">
+		<div class="message" role="status">${flash.message}</div>
+	</g:if>
+
 	<div class="search-panel">
+
 		<div class="search-form">
 			<g:form action="list" method="post">
 	  			Search for : <g:textField name="query" value="${query}"/>
