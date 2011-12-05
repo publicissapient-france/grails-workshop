@@ -23,7 +23,7 @@
 		<g:message code="recipe.glass.label" default="Glass" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="glass" name="glass.id" from="${cocktail.Glass.list()}" optionKey="id" required="" value="${recipeInstance?.glass?.id}" class="many-to-one"/>
+	<g:select id="glass" name="glass.id" from="${cocktail.Glass.list()}" optionKey="id" optionValue="name" required="" value="${recipeInstance?.glass?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: recipeInstance, field: 'ingredients', 'error')} ">
